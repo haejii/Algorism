@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class Hash01 {
+	
+	char solution(int i, String s) {
+		
+		char ans = ' ';
+		
+		HashMap<Character, Integer> map = new HashMap<>();
+		
+		for(char c : s.toCharArray()) {
+			map.put(c, map.getOrDefault(c, 0) + 1);
+		}
+		
+		int max = Integer.MIN_VALUE;
+		for(char key : map.keySet()) {
+		//	System.out.println(key + " " + map.get(key));
+			
+			if(map.get(key) > max) {
+				max = map.get(key);
+				ans = key;
+			}
+		}
+		
+		return ans;
+	}
+
+    public static void main(String[] args) {
+    	
+    	
+    	Hash01 h01 = new Hash01();
+    	
+    	Scanner scanner = new Scanner(System.in);
+    	
+    	int i = scanner.nextInt();
+    	String s = scanner.next();
+    	
+    	System.out.println(h01.solution(i, s));
+    	
+    	
+    }
+}
