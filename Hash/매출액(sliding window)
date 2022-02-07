@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Hash03 {
+	
+	int solution(int n, int m, int[] arr) {
+		
+		int ans = 0, sum = 0;
+		
+		
+	
+		for(int i =0; i<m; i++) {
+			sum += arr[i];
+			ans = sum;
+			
+			
+		}
+		
+		for(int i=m; i<n; i++) {
+			sum += (arr[i] - arr[i-m]);
+			ans = Math.max(ans, sum);
+		}
+	
+		
+		return ans;
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		Hash03 h03 = new Hash03();
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		int i = scanner.nextInt();
+		int j = scanner.nextInt();
+		
+		int arr[] = new int[i];
+		
+		for(int n=0; n<arr.length; n++) {
+			arr[n] = scanner.nextInt();
+		}
+	
+		
+		System.out.println(h03.solution(i, j, arr));
+		
+		
+	}
+}
